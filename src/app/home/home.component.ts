@@ -5,7 +5,7 @@ import { Page, ScrollEventData, ScrollView } from "@nativescript/core"
 @Component({
     selector: 'ns-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.ios.css','./home.component.android.css' ],
+    styleUrls: ['./home.component.css', ],
   })
   export class HomeComponent {
     constructor(private router : Router) { 
