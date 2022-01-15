@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'   
+import { install } from '@nativescript-community/ui-drawer';
+install();
 
 @Component({
   selector: 'ns-app',
@@ -7,3 +9,5 @@ import { Component } from '@angular/core'
 })
 export class AppComponent { 
 }
+
+

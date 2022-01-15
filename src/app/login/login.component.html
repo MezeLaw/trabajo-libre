@@ -1,5 +1,4 @@
-<ScrollView (scroll)="onScroll($event)">
-    <i class="fas fa-user"></i>
+<ScrollView (scroll)="onScroll($event)"> 
     <StackLayout class="p-20">
     
      <image src="~/app/images/logo.png" height="350px" width="auto" class="logo"></image>
@@ -19,8 +18,8 @@
       </GridLayout>
       
       <GridLayout class="m-10 input-border" columns="*,auto">
-        <Label *ngIf="secure"  class="icon" text="&#xe897;" (tap)="hidePassword()"></Label>  <Label *ngIf="secure"  class="label-psw-mgn" text="Mostrar contraseña"></Label>
-        <Label *ngIf="!secure" class="icon" text="&#xe898;" (tap)="hidePassword()"></Label> <Label *ngIf="!secure"  class="label-psw-mgn" text="Ocultar contraseña"></Label>
+        <Label *ngIf="secure"  class="icon" text="&#xe897;" (tap)="hidePassword()"></Label><Label *ngIf="secure"  class="label-psw-mgn" text="Mostrar contraseña"></Label>
+        <Label *ngIf="!secure" class="icon" text="&#xe898;" (tap)="hidePassword()"></Label><Label *ngIf="!secure"  class="label-psw-mgn" text="Ocultar contraseña"></Label>
       </GridLayout>
         
        <MDButton rippleColor="grey" text="Iniciar sesión" (tap)="login()" isEnabled="{{!loading}}" class=" btn  "></MDButton>
