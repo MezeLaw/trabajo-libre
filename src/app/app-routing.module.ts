@@ -15,10 +15,9 @@ const routes: Routes = [
   { path: 'item/:id', component: ItemDetailComponent },
   { path: 'start', component : BasicDrawerComponent,
     children:[
-      {path:'home', component: HomeComponent}
-    ]},
-  {path:'home', component: HomeComponent},
-  { path: 'tasks', component: TasksComponent}
+      {path:'home', component: HomeComponent},
+      {path:'tasks', component: HomeComponent}
+    ]},  
 ]
 
 @NgModule({

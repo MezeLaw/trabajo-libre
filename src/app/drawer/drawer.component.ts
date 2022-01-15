@@ -3,7 +3,7 @@ import { RouterExtensions } from '@nativescript/angular';
 import { Drawer } from "@nativescript-community/ui-drawer";
 import { Page } from "@nativescript/core";
 import { isAndroid, isIOS } from "@nativescript/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector: 'ns-drawer',
@@ -15,7 +15,8 @@ export class BasicDrawerComponent implements OnInit {
     
     @ViewChild("drawer", { static: true }) drawerElementRef: ElementRef;
     isOpened : Boolean
-    constructor(private router: Router, private routerEx: RouterExtensions, private page : Page) {
+    route: ActivatedRoute;
+    constructor(private router: Router, private routerEx: RouterExtensions, private page : Page, route : ActivatedRoute) {
         this.page.actionBarHidden = false
         this.isOpened = false 
     }
@@ -52,7 +53,7 @@ export class BasicDrawerComponent implements OnInit {
     }
 
     goHome(){
-        this.router.navigate(['home'])
+        this.router.navigate(['./start/home'])
     }
 
     goTasks(){
