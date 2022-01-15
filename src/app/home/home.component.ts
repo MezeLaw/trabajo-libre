@@ -8,8 +8,9 @@ import { Page, ScrollEventData, ScrollView } from "@nativescript/core"
     styleUrls: ['./home.component.css', ],
   })
   export class HomeComponent {
-    constructor(private router : Router) { 
+    constructor(private router : Router, page : Page) { 
         console.log("Entre al constructor de home component")
+        page.actionBarHidden = true
     }
 
     onScroll(args: ScrollEventData) {
