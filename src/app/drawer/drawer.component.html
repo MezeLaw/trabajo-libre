@@ -1,14 +1,5 @@
- 
-
- 
-
-<ActionBar title="titlee"> 
-     <Label *ngIf="isAndroid()" row="0" horizontalAlignment="left" class="icon" text="&#xe5d2;" (tap)="onOpenDrawer()">xD</Label> 
-    <ActionItem text="Menu" *ngIf="isIOS()" ios.position="right" (tap)="onOpenDrawer()"></ActionItem>
-</ActionBar>
-
 <GridLayout>
-    <Drawer #drawer class="drawer">
+    <Drawer #drawer class="drawer" (loaded)="onDrawerLoaded($event)">
         <GridLayout leftDrawer width="300" backgroundColor="white" rows="auto, *">
             <StackLayout row="0">
                 <StackLayout backgroundColor="#eeeeee" padding="25">
@@ -23,20 +14,19 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout>
-                    <Button text="Inicio" class="button" (tap)="goHome()"></Button> 
-                    <Button text="Tareas" class="button" (tap)="goTasks()"></Button> 
-                    <Button text="Support" class="button" (tap)="onCloseDrawer()"></Button> 
-                    <Button text="Settings" class="button" (tap)="onCloseDrawer()"></Button> 
-                    <Button text="Cerrar sesion" class="button" (tap)="onCloseDrawer()"></Button> 
-                    
+                    <Button text="Inicio" class="button" (tap)="goHome()"></Button>
+                    <Button text="Tareas" class="button" (tap)="goTasks()"></Button>
+                    <Button text="Support" class="button" (tap)="drawerService.onCloseDrawer()"></Button>
+                    <Button text="Settings" class="button" (tap)="drawerService.onCloseDrawer()"></Button>
+                    <Button text="Cerrar sesion" class="button" (tap)="drawerService.onCloseDrawer()"></Button>
+
                 </StackLayout>
             </StackLayout>
         </GridLayout>
-    </Drawer>
- 
-</GridLayout>
- 
- 
 
- 
- 
+        <GridLayout mainContent>
+            <page-router-outlet name="drawer"></page-router-outlet>
+        </GridLayout>
+    </Drawer>
+
+</GridLayout>

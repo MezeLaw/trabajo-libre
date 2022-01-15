@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
-import { Page, ScrollEventData, ScrollView } from "@nativescript/core"
+import { isAndroid, isIOS, Page, ScrollEventData, ScrollView } from "@nativescript/core"
+import { DrawerService } from "../drawer/drawer.service";
 
 @Component({
     selector: 'ns-home',
@@ -8,12 +9,20 @@ import { Page, ScrollEventData, ScrollView } from "@nativescript/core"
     styleUrls: ['./home.component.ios.css','./home.component.android.css' ],
   })
   export class HomeComponent {
-    constructor(private router : Router) { 
+    constructor(private router: Router, public _drawer: DrawerService) {
         console.log("Entre al constructor de home component")
     }
 
+    isIOS(): boolean {
+      return isIOS;
+    }
+
+    isAndroid(): boolean {
+        return isAndroid;
+    }
+
     onScroll(args: ScrollEventData) {
-        const scrollView = args.object as ScrollView 
+        const scrollView = args.object as ScrollView
     }
 
     onBottomNavigationTabSelected($event){
@@ -21,15 +30,15 @@ import { Page, ScrollEventData, ScrollView } from "@nativescript/core"
     }
 
     onBottomNavigationTabPressed($event){}
-      
+
 
     goTasks(){
-        this.router.navigate(['tasks'])
+        this.router.navigateByUrl('/start/(drawer:tasks)');
     }
   }
   /**
-   * 
-   *  
+   *
+   *
    *        import { Component, OnInit } from "@angular/core"
 
             @Component({
@@ -38,8 +47,7 @@ import { Page, ScrollEventData, ScrollView } from "@nativescript/core"
                 styleUrls: ['./home.component.ios.css','./home.component.android.css' ],
             })
             export class HomeComponent {}
-   *   
-   * 
+   *
+   *
    */
-            
-  
+

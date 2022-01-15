@@ -1,7 +1,11 @@
-    <StackLayout class="p-50">
-       
-      <Label text="Tasks works! (Content served from TasksComponent)" class="fontSize text-center registerLabelMargins"></Label>  
-      <button text="Apreta para ir al home" (tap)="goHome();"></button>
-    </StackLayout>
-    
-     
+<ActionBar title="titlee">
+  <Label *ngIf="isAndroid()" row="0" horizontalAlignment="left" class="icon" text="&#xe5d2;" (tap)="_drawer.onOpenDrawer()">xD</Label>
+ <ActionItem text="Menu" *ngIf="isIOS()" ios.position="right" (tap)="_drawer.onOpenDrawer()"></ActionItem>
+</ActionBar>
+
+<StackLayout class="p-50">
+
+  <Label text="Tasks works! (Content served from TasksComponent)" class="fontSize text-center registerLabelMargins"></Label>
+  <button text="Apreta para ir al home" (tap)="goHome();"></button>
+</StackLayout>
+

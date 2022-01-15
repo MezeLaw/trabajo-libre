@@ -1,24 +1,19 @@
-import { Component, NgModule } from '@angular/core'
-import { Routes } from '@angular/router' 
-import { NativeScriptRouterModule } from '@nativescript/angular' 
-import { BasicDrawerComponent } from './drawer/drawer.component'
-import { HomeComponent } from './home/home.component'
+import { NgModule } from '@angular/core'
+import { Routes } from '@angular/router'
+import { NativeScriptRouterModule } from '@nativescript/angular'
 
 import { ItemDetailComponent } from './item/item-detail.component'
 
-import { LoginComponent } from './login/login.component' 
-import { TasksComponent } from './tasks/tasks.component'
+import { LoginComponent } from './login/login.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  {
+    path: 'start',
+    loadChildren: () => import('./drawer/drawer.module').then(m => m.BasicDrawerModule)
+  },
   { path: 'item/:id', component: ItemDetailComponent },
-  { path: 'start', component : BasicDrawerComponent,
-    children:[
-      {path:'home', component: HomeComponent}
-    ]},
-  {path:'home', component: HomeComponent},
-  { path: 'tasks', component: TasksComponent}
 ]
 
 @NgModule({
